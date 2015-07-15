@@ -15,6 +15,7 @@ RUN yum -y install \
 ADD http://mirror.catn.com/pub/apache/hadoop/common/hadoop-2.7.0/hadoop-2.7.0.tar.gz /opt/
 ADD https://pypi.python.org/packages/source/p/pip/pip-7.1.0.tar.gz#md5=d935ee9146074b1d3f26c5f0acfd120e /root/
 
+ADD etc/supervisord.conf /etc/supervisord.conf
 RUN cd /root && easy_install pip-7.1.0.tar.gz
 RUN pip install supervisor
 RUN cd /opt && tar xfv hadoop-2.7.0.tar.gz && rm hadoop-2.7.0.tar.gz
@@ -26,3 +27,4 @@ RUN useradd hadoop \
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45-30.b13.el7_1.x86_64/
 ENV PATH $PATH:/opt/hadoop-2.7.0/bin
+
