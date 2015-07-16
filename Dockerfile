@@ -5,7 +5,7 @@ RUN yum -y update && yum clean all
 
 # Install pre-requisite packages..
 RUN yum -y install \
-	java-1.8.0-openjdk-devel-1.8.0.45-30.b13.el7_1 \
+	java-1.8.0-openjdk-1.8.0.45-30.b13.el7_1 \
 	jna-3.5.2 \
 	python-2.7.5-18.el7_1.1 \
 	python-setuptools-0.9.8 \
