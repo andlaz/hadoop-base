@@ -1,11 +1,8 @@
 FROM centos:7.1.1503
 MAINTAINER andras.szerdahelyi@gmail.com
 
-RUN yum -y update && yum clean all
-
 # Install pre-requisite packages..
-RUN yum -y install \
-	java-1.8.0-openjdk-1.8.0.45-30.b13.el7_1 \
+RUN yum -y install java-1.8.0-openjdk-devel-1.8.0.51-1.b16.el7_1 \
 	jna-3.5.2 \
 	python-2.7.5-18.el7_1.1 \
 	python-setuptools-0.9.8 \
@@ -25,6 +22,9 @@ RUN useradd hadoop \
 	&& ln -s /opt/hadoop-2.7.0/etc/hadoop /etc/hadoop \
 	&& chown -R hadoop:hadoop /opt/hadoop-2.7.0
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.45-30.b13.el7_1.x86_64/
+RUN mkdir -p /var/log/supervisor
+RUN chown hadoop /var/log/supervisor
+
+ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk
 ENV PATH $PATH:/opt/hadoop-2.7.0/bin
 
