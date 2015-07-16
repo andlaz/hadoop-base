@@ -23,12 +23,15 @@ RUN useradd hadoop \
 	&& chown -R hadoop:hadoop /opt/hadoop-2.7.0
 
 ENV HADOOP_LOG_DIR="/var/log/hadoop"
+ENV HAOOOP_ROOT_LOGGER="WARN,RFA"
 
 RUN mkdir -p $HADOOP_LOG_DIR
 RUN mkdir -p /var/log/supervisor
+RUN mkdir -p /var/run/supervisor
 
-RUN chown hadoop /var/log/hadoop
+RUN chown hadoop $HADOOP_LOG_DIR
 RUN chown hadoop /var/log/supervisor
+RUN chown hadoop /var/run/supervisor
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8.0-openjdk
 ENV PATH $PATH:/opt/hadoop-2.7.0/bin
