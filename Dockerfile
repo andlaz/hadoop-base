@@ -23,7 +23,7 @@ RUN useradd hadoop \
 	&& chown -R hadoop:hadoop /opt/hadoop-2.7.0
 
 ENV HADOOP_LOG_DIR="/var/log/hadoop"
-ENV HAOOOP_ROOT_LOGGER="WARN,RFA"
+ENV HADOOP_OPTS="-Dhadoop.root.logger=INFO,RFA"
 
 RUN mkdir -p $HADOOP_LOG_DIR
 RUN mkdir -p /var/log/supervisor
