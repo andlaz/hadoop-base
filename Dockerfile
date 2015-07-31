@@ -24,6 +24,8 @@ RUN useradd hadoop \
 
 ENV HADOOP_LOG_DIR="/var/log/hadoop"
 ENV HADOOP_ROOT_LOGGER="WARN,RFA"
+ENV YARN_LOG_DIR=$HADOOP_LOG_DIR
+ENV YARN_ROOT_LOGGER=$HADOOP_ROOT_LOGGER
 
 RUN mkdir -p $HADOOP_LOG_DIR
 RUN mkdir -p /var/log/supervisor
