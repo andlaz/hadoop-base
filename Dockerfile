@@ -18,9 +18,12 @@ RUN pip install supervisor
 RUN cd /opt && tar xfv hadoop-2.7.0.tar.gz && rm hadoop-2.7.0.tar.gz
 
 RUN useradd hadoop \
+	&& useradd oozie \
 	&& ln -s /opt/hadoop-2.7.0 /home/hadoop/hadoop-2.7.0 \
 	&& ln -s /opt/hadoop-2.7.0/etc/hadoop /etc/hadoop \
 	&& chown -R hadoop:hadoop /opt/hadoop-2.7.0
+
+ADD etc/hadoop/core-site.xml.erb /etc/hadoop/core-site.xml.erb
 
 ENV HADOOP_LOG_DIR="/var/log/hadoop"
 ENV HADOOP_ROOT_LOGGER="WARN,RFA"
