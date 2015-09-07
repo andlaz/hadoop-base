@@ -19,6 +19,7 @@ RUN cd /opt && tar xfv hadoop-2.7.0.tar.gz && rm hadoop-2.7.0.tar.gz
 
 RUN useradd hadoop \
 	&& useradd oozie \
+	&& useradd hue \
 	&& ln -s /opt/hadoop-2.7.0 /home/hadoop/hadoop-2.7.0 \
 	&& ln -s /opt/hadoop-2.7.0/etc/hadoop /etc/hadoop \
 	&& chown -R hadoop:hadoop /opt/hadoop-2.7.0
