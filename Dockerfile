@@ -2,7 +2,7 @@ FROM centos:7.1.1503
 MAINTAINER andras.szerdahelyi@gmail.com
 
 # Install pre-requisite packages..
-RUN yum -y install java-1.8.0-openjdk-devel-1.8.0.51-1.b16.el7_1 \
+RUN yum -y install java-1.8.0-openjdk-devel-1.8.0.60-2.b27.el7_1 \
 	jna-3.5.2 \
 	python-2.7.5-18.el7_1.1 \
 	python-setuptools-0.9.8 \
